@@ -32,7 +32,7 @@ transition: fade
 
 ---
 layout: image
-image: ./images/eda.gif
+image: /eda.gif
 backgroundSize: 35em 80%
 backgroundPosition: center
 ---
@@ -80,7 +80,7 @@ Components can be replaced or updated independently.
 
 ---
 layout: image-right
-image: ./images/pub-sub-logo.png
+image: /pub-sub-logo.png
 backgroundSize: 20em 50%
 ---
 
