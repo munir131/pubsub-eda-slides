@@ -12,9 +12,7 @@ class: text-center
 **Presented by:**  
 **Munir Khakhi**
 
-<div @click="$slidev.nav.next" class="mt-12 py-1" hover:bg="white op-10">
-  Press Space for the next slide <carbon:arrow-right />
-</div>
+Slide Link: https://bit.ly/pubsub-eda
 
 ---
 transition: fade
@@ -49,6 +47,7 @@ transition: slide-left
 ---
 
 
+
 # What is Event-Driven Architecture?
 
 Event-Driven Architecture (EDA) is a software design pattern in which components communicate through events.
@@ -68,6 +67,7 @@ transition: slide-left
 ---
 
 # Benefits of EDA
+   
 
 **Scalability**  
 Systems can easily scale by adding more consumers or producers.  
@@ -79,7 +79,9 @@ Events are persisted and can be retried in case of failures.
 Components can be replaced or updated independently.
 
 ---
-transition: slide-left
+layout: image-right
+image: ./images/pub-sub-logo.png
+backgroundSize: 20em 50%
 ---
 
 # Why Google Pub/Sub?
@@ -104,6 +106,43 @@ transition: slide-left
 
 2. **At-most-once delivery**:  
    - Messages are delivered only once, without retries.
+
+
+---
+layout: default
+---
+
+# EDA with Pub/Sub
+
+```mermaid
+graph TD
+    subgraph GoogleCloud
+        direction TB
+        subgraph Region1 [Region: US Central]
+            GoService[Go Service]
+            NodeService[Node.js Worker]
+        end
+
+        subgraph Region2 [Region: Europe West]
+            LaravelService[Laravel Service]
+            LaravelWorker[Laravel Worker]
+        end
+
+        subgraph Region3 [Region: Asia East]
+            PythonService[Python Service]
+        end
+
+        PubSub[Google Pub/Sub]
+
+        GoService -->|Publish Event| PubSub
+        NodeService -->|Subscribe to Event| PubSub
+        LaravelService -->|Subscribe to Event| PubSub
+        LaravelWorker -->|Subscribe to Event| PubSub
+        PythonService -->|Publish Event| PubSub
+    end
+```
+
+
 
 ---
 layout: center
@@ -201,4 +240,7 @@ class: text-center
 
 # Q&A Session
 
-Got questions? Let’s discuss!
+## Got questions? Let’s discuss!
+
+Slide Link: https://bit.ly/pubsub-eda
+Code Repo: https://github.com/munir131/pubsub-eda
